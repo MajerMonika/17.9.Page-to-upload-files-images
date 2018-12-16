@@ -1,4 +1,5 @@
 var fs = require('fs');
+var formidable = require('formidable');
 
 exports.welcome = function (request, response) {
   console.log("Rozpoczynam obsługę żądania welcome.");
@@ -11,8 +12,6 @@ exports.welcome = function (request, response) {
   });
 }
 
-var formidable = require('formidable');
-
 exports.upload = function (request, response) {
   console.log("Rozpoczynam obsługę żądania upload.");
   var form = new formidable.IncomingForm();
@@ -23,6 +22,16 @@ exports.upload = function (request, response) {
     });
     response.write("received image:<br/>");
     response.write("<img src='/show' />");
+    response.end();
+  });
+}
+
+exports.show = function (request, response) {
+  fs.readFile("test.png", "binary", function (error, file) {
+    response.writeHead(200, {
+      "Content-Type": "image/png"
+    });
+    response.write(file, "binary");
     response.end();
   });
 }
