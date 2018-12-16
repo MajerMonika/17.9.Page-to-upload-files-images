@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/MajerMonika/17.9.Page-to-upload-files-images/issues"
   },
-  "homepage": "https://github.com/MajerMonika/17.9.Page-to-upload-files-images#readme"
+  "homepage": "https://github.com/MajerMonika/17.9.Page-to-upload-files-images#readme",
+  "dependencies": {
+    "colors": "^1.3.3"
+  }
 }
